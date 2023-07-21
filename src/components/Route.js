@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import '../styles/Route.css';
 
-export const RouteTable = () => {
+export const RouteTable = ({ list }) => {
     const [valueSearch, setValueSearch] = useState('')
 
-    const Search = () => {
+    const search = () => {
        return  setValueSearch(e => console.log(e.target.value))
     }
 
@@ -13,11 +13,13 @@ export const RouteTable = () => {
     return (
         // className="App"
         <div className="table">
-            <input className="table_input"  value={valueSearch} onChange={Search} type="search"/>
-            <div className="table_div">
-                <div className="table_div__text">Метка</div>
-                <button className="table_button"/>
-            </div>
+            <input className="table_input"  value={valueSearch} onChange={search} type="search"/>
+            {list?.map((item) => (
+                <div className="table_div" key={item}>
+                    <div className="table_div__text">{item}</div>
+                    <button className="table_button"/>
+                </div>
+            ))}
         </div>
     );
 };
