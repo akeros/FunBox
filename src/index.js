@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { YMaps } from '@pbe/react-yandex-maps';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+      <YMaps>
+        <App />
+      </YMaps>
   </React.StrictMode>
 );
 
